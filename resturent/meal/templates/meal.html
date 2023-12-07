@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="Meals_top"><h1>Availabe Meals</h1></div>
+{% comment %} <div class="text-center mt-5"><h1><strong>Availabe Meals</strong></h1></div> {% endcomment %}
+<br>
+{% comment %} <div><h3><strong>total Meals:{{len(categories)}}</strong></h3></div> {% endcomment %}
+<br>
+<div class='d-flex flex-wrap container'> 
+{% for i in  categories%}
+    <div class="card text-center m-5" style="width: 18rem;">
+        <img src="{{i.strCategoryThumb}}" class="card-img-top" alt="Food image">
+        <div class="card-body">
+          <h5 class="card-title"><strong><bold>Title : {{i.strCategory}}</bold></strong></h5>
+          <h5 class="card-title"><strong>ID : {{i.idCategory}}</strong></h5>
+          <p class="card-text">{{ i.strCategoryDescription|truncatewords:10 }}</p>
+        </div>
+      </div>
+      {% endfor %}
+</div>
+{% endblock%}
